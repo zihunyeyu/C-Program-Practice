@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main()
+{	
+	int n,m;
+	scanf("%d %d",&n,&m);
+	int x;
+	int Primes[200];
+	int y=0;
+	Primes[0]=2;
+	for(x=3;y < m-1;x ++){
+		int k;
+		int Prime=1;
+		for(k=2;k<x-1;k++){
+			if(x%k == 0){
+				Prime = 0;
+				break;
+			}
+		}
+		if(Prime==1){
+			y ++;
+			Primes[y]=x;
+		}
+	}
+	int sum=0;
+	int s=n;
+	do{
+		sum += Primes[s-1];
+		s ++;
+	}while(s<=m);
+	printf("%d",sum);
+	return 0;
+}
